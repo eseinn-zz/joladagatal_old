@@ -12,17 +12,17 @@
       <h1>Æfingadagatalið</h1>
 
       <div id="container">
-  
         <div id="content">
-          <div id="todayDate" class="subHeader"></div>
-          <div id="countDownDays" class="subHeader"></div></div>
+            <div id="todayDate" class="subHeader"></div>
+            <div id="countDownDays" class="subHeader"></div>
    
-          <div id="exercise">
-              <div>"Æfing dagsins er: "</div>
-              <div>      
-                   <button type="button" id="button" onclick="onButtonClick()">
-                Opna glugga
-              </button>
+            <div id="exercise">
+                <div>Æfing dagsins er: </div>
+                <div>      
+                    <button type="button" id="button" onclick="onButtonClick()">
+                    Opna glugga
+                    </button>
+                </div>
             </div>
         </div>
         </div>
@@ -43,8 +43,18 @@
             const countDown =  daysLeft === 0 ? "Gleðileg jól!" : daysLeft + " dagar til jóla";
             document.getElementById("countDownDays").appendChild(document.createTextNode(countDown));
       }
+
+      const showContentIfDecemeber = () => {
+        const date = new Date();
+        const month = date.getMonth();
+        console.log(month)
+        if(month === 11){
+            document.getElementById('button').style.display = 'block';
+        }
+      }
         getTodayDate();
         getCountDownDays();
+        showContentIfDecemeber()
 
       const onButtonClick = () => {
          document.getElementById('button').style.display = 'none';
@@ -139,6 +149,10 @@
       #wrapper {
         padding: 20px;
         text-align: center;
+      }
+
+      #content {
+          display: none
       }
 
       h1 {
