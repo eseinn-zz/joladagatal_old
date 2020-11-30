@@ -13,34 +13,34 @@
 
       <div id="content">
         <button type="button" id="button" onclick="onButtonClick">Opna</button>
-        <div class="today"></div>
+        <div id="today"></div>
       </div>
     </div>
     <script type="text/javaScript">
       console.log("init");
       function onButtonClick () {
          document.getElementById('button').style.display = 'none';
-          getTodayDate()
-          getExerciseForToday()
+          getTodayDate();
+          getExerciseForToday();
 
       }
 
       function getTodayDate () {
-        const date = new Date()
-        const formatedDate =  date.getDate()+"."+(date.getMonth()+1)+"."+"2020"
+        const date = new Date();
+        const formatedDate =  date.getDate()+"."+(date.getMonth()+1)+"."+"2020";
         document.getElementById("today").appendChild(document.createTextNode(formatedDate));
       }
 
       function getExerciseForToday() {
-        const date = new Date()
+        const date = new Date();
         const day = date.getDate();
         let exercise = null;
         switch (day) {
             case 1:
-            exercise =  "10 burpees"
+            exercise =  "10 burpees";
                 break;
             case 2:
-            exercise = "20 burpees"
+            exercise = "20 burpees";
             default:
                 break;
         }
