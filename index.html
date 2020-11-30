@@ -17,7 +17,7 @@
         </button>
         <div id="content">
           <h2 id="todayDate"></h2>
-          <div id="exercise"></div>
+          <div id="exercise">Æfing dagsins er:</div>
         </div>
       </div>
     </div>
@@ -32,8 +32,8 @@
       const  getTodayDate = () => {
         const date = new Date();
         const day = date.getDate();
-        const daysLeft = (24-day);
-        const countDown =  daysLeft > 0 ? daysLeft + " dagar til jóla" : "Gleðileg jól!";
+        const daysLeft = Math.abs((24-day));
+        const countDown =  daysLeft === 0 ? "Gleðileg jól!" : daysLeft + " dagar til jóla";
         const formatedDate = day +"."+(date.getMonth()+1)+"."+"2020" + " - " + countDown;
         document.getElementById("todayDate").appendChild(document.createTextNode(formatedDate));
       }
@@ -95,7 +95,7 @@
                 break;
         }
 
-        document.getElementById("exercise").appendChild(document.createTextNode(exercise));
+        document.getElementById("exercise").appendChild(document.createTextNode(" " + exercise));
 
       }
     </script>
