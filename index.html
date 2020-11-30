@@ -27,28 +27,28 @@
       </div>
     </div>
     <script type="text/javaScript">
+        const getTodayDate = () => {
+            const date = new Date();
+            const day = date.getDate();
+            const formatedDate = day +"."+(date.getMonth()+1)+"."+"2020" ;
+            document.getElementById("todayDate").appendChild(document.createTextNode(formatedDate));
+      }
+
+      const getCountDownDays = () => {
+            const date = new Date();
+            const day = date.getDate();
+            const daysLeft = Math.abs((24-day));
+            const countDown =  daysLeft === 0 ? "Gleðileg jól!" : daysLeft + " dagar til jóla";
+            document.getElementById("todayDate").appendChild(document.createTextNode(countDown));
+      }
         getTodayDate();
         getCountDownDays();
 
-      console.log("init");
       const onButtonClick = () => {
          document.getElementById('button').style.display = 'none';
           getExerciseForToday();
       }
-      const getTodayDate = () => {
-        const date = new Date();
-        const day = date.getDate();
-        const formatedDate = day +"."+(date.getMonth()+1)+"."+"2020" ;
-        document.getElementById("todayDate").appendChild(document.createTextNode(formatedDate));
-      }
 
-      const getCountDownDays = () => {
-        const date = new Date();
-        const day = date.getDate();
-        const daysLeft = Math.abs((24-day));
-        const countDown =  daysLeft === 0 ? "Gleðileg jól!" : daysLeft + " dagar til jóla";
-        document.getElementById("todayDate").appendChild(document.createTextNode(countDown));
-      }
       const  getExerciseForToday = () => {
         const date = new Date();
         const day = date.getDay();
