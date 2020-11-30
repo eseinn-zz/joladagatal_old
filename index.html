@@ -16,12 +16,14 @@
         <div id="content">
           <div id="todayDate" class="subHeader"></div>
           <div id="countDownDays" class="subHeader"></div></div>
-          <button type="button" id="button" onclick="onButtonClick()">
-            Opna glugga
-          </button>
+   
           <div id="exercise">
-              <div></div>
-              <div></div>
+              <div>"Æfing dagsins er: "</div>
+              <div>      
+                   <button type="button" id="button" onclick="onButtonClick()">
+                Opna glugga
+              </button>
+            </div>
         </div>
         </div>
       </div>
@@ -130,7 +132,6 @@
                 break;
         }
         const containers = document.getElementById("exercise").children;
-        containers[0].appendChild(document.createTextNode("Æfing dagsins er: "));
         containers[1].appendChild(document.createTextNode(exercise));
       }
     </script>
@@ -153,6 +154,10 @@
 
       #exercise {
           font-size: 20px;
+      }
+
+      #countDownDays {
+          margin: 20px;
       }
 
       #container {
