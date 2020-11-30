@@ -13,90 +13,125 @@
 
       <div id="container">
         <button type="button" id="button" onclick="onButtonClick()">
-          Opna
+          Opna glugga
         </button>
         <div id="content">
-          <h2 id="todayDate"></h2>
-          <div id="exercise">Æfing dagsins er:</div>
+          <div id="todayDate" class="subHeader"></div>
+          <div id="countDownDays" class="subHeader"></div>></div>
+
+          <div id="exercise">
+              <div></div>
+              <div></div>
+        </div>
         </div>
       </div>
     </div>
     <script type="text/javaScript">
-      console.log("init");
-      const  onButtonClick = () => {
-         document.getElementById('button').style.display = 'none';
-          getTodayDate();
-          getExerciseForToday();
+        getTodayDate();
+        getCountDownDays();
 
+      console.log("init");
+      const onButtonClick = () => {
+         document.getElementById('button').style.display = 'none';
+          getExerciseForToday();
       }
-      const  getTodayDate = () => {
+      const getTodayDate = () => {
+        const date = new Date();
+        const day = date.getDate();
+        const formatedDate = day +"."+(date.getMonth()+1)+"."+"2020" ;
+        document.getElementById("todayDate").appendChild(document.createTextNode(formatedDate));
+      }
+
+      const getCountDownDays = () => {
         const date = new Date();
         const day = date.getDate();
         const daysLeft = Math.abs((24-day));
         const countDown =  daysLeft === 0 ? "Gleðileg jól!" : daysLeft + " dagar til jóla";
-        const formatedDate = day +"."+(date.getMonth()+1)+"."+"2020" + " - " + countDown;
-        document.getElementById("todayDate").appendChild(document.createTextNode(formatedDate));
+        document.getElementById("todayDate").appendChild(document.createTextNode(countDown));
       }
       const  getExerciseForToday = () => {
         const date = new Date();
         const day = date.getDay();
         let exercise = null;
-        console.log(day);
         switch (day) {
             case 1:
-            exercise = "10 burpees";
+            exercise = "20 burpees";
+
             case 2:
             exercise = "20 burpees";
+
             case 3:
             exercise = "10 burpees";
+
             case 4:
             exercise = "20 burpees";
+
             case 5:
             exercise = "10 burpees";
+
             case 6:
             exercise = "20 burpees";
+
             case 7:
             exercise = "10 burpees";
+
             case 8:
             exercise = "20 burpees";
+
             case 9:
             exercise = "10 burpees";
+
             case 10:
             exercise = "20 burpees";
+
             case 11:
             exercise = "10 burpees";
+
             case 12:
             exercise = "20 burpees";
+
             case 13:
             exercise = "10 burpees";
+
             case 14:
             exercise = "20 burpees";
+
             case 15:
             exercise = "10 burpees";
+
             case 16:
             exercise = "20 burpees";
+
             case 17:
             exercise = "10 burpees";
+
             case 18:
             exercise = "20 burpees";
+
             case 19:
             exercise = "10 burpees";
+
             case 20:
             exercise = "20 burpees";
+
             case 21:
             exercise = "10 burpees";
+
             case 22:
             exercise = "20 burpees";
+
             case 23:
             exercise = "20 burpees";
+
             case 24:
             exercise = "20 burpees";
+
             default:
                 break;
         }
-
-        document.getElementById("exercise").appendChild(document.createTextNode(" " + exercise));
-
+        const containers = document.getElementById("exercise").children;
+        containers[0].appendChild(document.createTextNode("Æfing dagsins er: "));
+        containers[1].appendChild(document.createTextNode(exercise));+
       }
     </script>
     <style>
@@ -106,9 +141,18 @@
       }
 
       h1 {
+          font-size: 60px;
+      }
+
+      .subHeader {
+          font-size: 40px;
       }
 
       h2 {
+      }
+
+      #exercise {
+          font-size: 20px;
       }
 
       #container {
