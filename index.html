@@ -12,13 +12,41 @@
       <h1>Æfingadagatalið</h1>
 
       <div id="content">
-        <button type="button" onclick="onButtonClick">Opna</button>
+        <button type="button" id="button" onclick="onButtonClick">Opna</button>
+        <div class="today"></div>
       </div>
     </div>
     <script type="text/javaScript">
       console.log("init");
-      const onButtonClick = () => {
-          console.log("click")
+      function onButtonClick () {
+         document.getElementById('button').style.display = 'none';
+          getTodayDate()
+          getExerciseForToday()
+
+      }
+
+      function getTodayDate () {
+        const date = new Date()
+        const formatedDate =  date.getDate()+"."+(date.getMonth()+1)+"."+"2020"
+        document.getElementById("today").appendChild(document.createTextNode(formatedDate));
+      }
+
+      function getExerciseForToday() {
+        const date = new Date()
+        const day = date.getDate();
+        let exercise = null;
+        switch (day) {
+            case 1:
+            exercise =  "10 burpees"
+                break;
+            case 2:
+            exercise = "20 burpees"
+            default:
+                break;
+        }
+
+        document.getElementById("today").appendChild(document.createTextNode(exercise));
+
       }
     </script>
     <style>
