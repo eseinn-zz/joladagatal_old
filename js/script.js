@@ -1,0 +1,3 @@
+const onButtonClick = () => {
+  alert('ok');
+};
