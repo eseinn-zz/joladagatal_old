@@ -12,13 +12,13 @@
       <h1>Æfingadagatalið</h1>
 
       <div id="container">
-        <button type="button" id="button" onclick="onButtonClick()">
-          Opna glugga
-        </button>
+  
         <div id="content">
           <div id="todayDate" class="subHeader"></div>
-          <div id="countDownDays" class="subHeader"></div>></div>
-
+          <div id="countDownDays" class="subHeader"></div></div>
+          <button type="button" id="button" onclick="onButtonClick()">
+            Opna glugga
+          </button>
           <div id="exercise">
               <div></div>
               <div></div>
@@ -39,7 +39,7 @@
             const day = date.getDate();
             const daysLeft = Math.abs((24-day));
             const countDown =  daysLeft === 0 ? "Gleðileg jól!" : daysLeft + " dagar til jóla";
-            document.getElementById("todayDate").appendChild(document.createTextNode(countDown));
+            document.getElementById("countDownDays").appendChild(document.createTextNode(countDown));
       }
         getTodayDate();
         getCountDownDays();
