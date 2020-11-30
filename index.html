@@ -36,7 +36,7 @@
       }
       const  getExerciseForToday = () => {
         const date = new Date();
-        const day = date.getDate();
+        const day = date.getDay();
         let exercise = null;
         console.log(day);
         switch (day) {
