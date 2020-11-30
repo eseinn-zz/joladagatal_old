@@ -31,7 +31,10 @@
       }
       const  getTodayDate = () => {
         const date = new Date();
-        const formatedDate =  date.getDate()+"."+(date.getMonth()+1)+"."+"2020";
+        const day = date.getDate();
+        const daysLeft = (24-day);
+        const countDown =  daysLeft > 0 ? daysLeft " dagar til jóla" : "Gleðileg jól!";
+        const formatedDate = day +"."+(date.getMonth()+1)+"."+"2020" + " - " + countDown;
         document.getElementById("todayDate").appendChild(document.createTextNode(formatedDate));
       }
       const  getExerciseForToday = () => {
@@ -42,8 +45,51 @@
         switch (day) {
             case 1:
             exercise = "10 burpees";
-                break;
             case 2:
+            exercise = "20 burpees";
+            case 3:
+            exercise = "10 burpees";
+            case 4:
+            exercise = "20 burpees";
+            case 5:
+            exercise = "10 burpees";
+            case 6:
+            exercise = "20 burpees";
+            case 7:
+            exercise = "10 burpees";
+            case 8:
+            exercise = "20 burpees";
+            case 9:
+            exercise = "10 burpees";
+            case 10:
+            exercise = "20 burpees";
+            case 11:
+            exercise = "10 burpees";
+            case 12:
+            exercise = "20 burpees";
+            case 13:
+            exercise = "10 burpees";
+            case 14:
+            exercise = "20 burpees";
+            case 15:
+            exercise = "10 burpees";
+            case 16:
+            exercise = "20 burpees";
+            case 17:
+            exercise = "10 burpees";
+            case 18:
+            exercise = "20 burpees";
+            case 19:
+            exercise = "10 burpees";
+            case 20:
+            exercise = "20 burpees";
+            case 21:
+            exercise = "10 burpees";
+            case 22:
+            exercise = "20 burpees";
+            case 23:
+            exercise = "20 burpees";
+            case 24:
             exercise = "20 burpees";
             default:
                 break;
