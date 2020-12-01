@@ -25,20 +25,11 @@ const showContentIfDecemeber = () => {
     document.getElementById('content').style.display = 'block';
   }
 };
-getTodayDate();
-getCountDownDays();
-showContentIfDecemeber();
-
-const onButtonClick = () => {
-  document.getElementById('button').style.display = 'none';
-  getExerciseForToday();
-};
 
 const getExerciseForToday = () => {
   const date = new Date();
   const day = date.getDate();
   let exercise = null;
-  console.log(day);
   switch (day) {
     case 1:
       exercise = '50 burpees (brjóta upp í viðráðanleg sett)';
@@ -136,7 +127,37 @@ const getExerciseForToday = () => {
       exercise = '20 burpees';
       break;
   }
-  console.log(exercise);
-  const containers = document.getElementById('exercise').children;
-  containers[1].appendChild(document.createTextNode(exercise));
+  const activeDay = document.getElementById('activeDay');
+
+  document
+    .getElementById('activeDay')
+    .removeEventListener('click', getExerciseForToday);
+  activeDay.children[0].innerHTML = exercise;
 };
+
+const renderCalendar = () => {
+  for (let index = 0; index < 25; index++) {
+    const dayContainer = document
+      .getElementById('calendar')
+      .appendChild(document.createElement('div'));
+    dayContainer.className = 'dayContainer';
+    dayContainer.id = 'day' + index;
+
+    const dayContent = dayContainer.appendChild(document.createElement('div'));
+    dayContent.className = 'dayContent';
+    if (index > 0) {
+      dayContent.appendChild(document.createTextNode(index));
+    }
+  }
+  const date = new Date();
+  const day = date.getDate();
+  const dayContainer = document.getElementById('day' + day);
+  dayContainer.id = 'activeDay';
+  document
+    .getElementById('activeDay')
+    .addEventListener('click', getExerciseForToday);
+};
+renderCalendar();
+getTodayDate();
+getCountDownDays();
+showContentIfDecemeber();

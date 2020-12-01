@@ -29,3 +29,30 @@ h2 {
 #container {
   padding: 16px;
 }
+
+#calendar {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dayContainer {
+  flex-basis: 14%;
+  flex-basis: 14%;
+  height: 100px;
+  background: red;
+  border: 1px solid;
+}
+
+.dayContent {
+  font-size: 24px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#activeDay {
+  cursor: pointer;
+  background: #008000c7;
+}
