@@ -3,9 +3,29 @@
   text-align: center;
 }
 
-h1 {
+#content {
+  display: none;
 }
 
-#content {
+h1 {
+  font-size: 60px;
+}
+
+.subHeader {
+  font-size: 40px;
+}
+
+h2 {
+}
+
+#exercise {
+  font-size: 20px;
+}
+
+#countDownDays {
+  margin: 20px;
+}
+
+#container {
   padding: 16px;
 }
