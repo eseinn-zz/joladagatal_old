@@ -30,6 +30,7 @@ const getExerciseForToday = () => {
   const date = new Date();
   const day = date.getDate();
   let exercise = null;
+  let isLink = false;
   switch (day) {
     case 1:
       exercise = '50 burpees (brjóta upp í viðráðanleg sett)';
@@ -40,11 +41,12 @@ const getExerciseForToday = () => {
       break;
 
     case 3:
-      exercise = '10 burpees';
+      exercise = 'Hálftíma göngutúr';
       break;
 
     case 4:
-      exercise = '20 burpees';
+      exercise = 'https://www.youtube.com/watch?v=9DqQ5GfZth4&t=449s';
+      isLink = true;
       break;
 
     case 5:
@@ -127,12 +129,18 @@ const getExerciseForToday = () => {
       exercise = '20 burpees';
       break;
   }
-  const activeDay = document.getElementById('activeDay');
-
+  let activeDay = document.getElementById('activeDay').children[0];
+  activeDay.innerHTML = '';
   document
     .getElementById('activeDay')
     .removeEventListener('click', getExerciseForToday);
-  activeDay.children[0].innerHTML = exercise;
+  if (isLink) {
+    activeDay.appendChild(document.createElement('a'));
+    activeDay.children[0].href = exercise;
+    activeDay.children[0].appendChild(document.createTextNode(exercise));
+  } else {
+    activeDay.appendChild(document.createTextNode(exercise));
+  }
 };
 
 const renderCalendar = () => {
