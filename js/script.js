@@ -29,117 +29,124 @@ const showContentIfDecemeber = () => {
 const getExerciseForToday = () => {
   const date = new Date();
   const day = date.getDate();
-  let exercise = null;
+  let text = null;
   let isLink = false;
   switch (day) {
     case 1:
-      exercise = '50 burpees (brjóta upp í viðráðanleg sett)';
+      text = '50 burpees (brjóta upp í viðráðanleg sett)';
       break;
 
     case 2:
-      exercise = '5 mín. wall squat (t.d. 1 min x5)';
+      text = '5 mín. wall squat (t.d. 1 min x5)';
       break;
 
     case 3:
-      exercise = 'Hálftíma göngutúr';
+      text = '100x bakfettur';
+      link = 'https://www.youtube.com/watch?v=DDJtB8Zgyow'; //bakfettur
+      isLink = true;
       break;
 
     case 4:
-      exercise = 'https://www.youtube.com/watch?v=9DqQ5GfZth4&t=449s';
+      link = 'https://www.youtube.com/watch?v=9DqQ5GfZth4&t=449s'; //6 min ab workout
       isLink = true;
       break;
 
     case 5:
-      exercise = '10 burpees';
+      text = 'Hálftíma göngutúr';
       break;
 
     case 6:
-      exercise = '20 burpees';
+      text = '20 burpees';
       break;
 
     case 7:
-      exercise = '10 burpees';
+      text = '10 burpees';
       break;
 
     case 8:
-      exercise = '20 burpees';
+      text = '20 burpees';
       break;
 
     case 9:
-      exercise = '10 burpees';
+      text = '10 burpees';
       break;
 
     case 10:
-      exercise = '20 burpees';
+      text = '20 burpees';
       break;
 
     case 11:
-      exercise = '10 burpees';
+      text = '10 burpees';
       break;
 
     case 12:
-      exercise = '20 burpees';
+      text = '20 burpees';
       break;
 
     case 13:
-      exercise = '10 burpees';
+      text = '10 burpees';
       break;
 
     case 14:
-      exercise = '20 burpees';
+      text = '20 burpees';
       break;
 
     case 15:
-      exercise = '10 burpees';
+      text = '10 burpees';
       break;
 
     case 16:
-      exercise = '20 burpees';
+      text = '20 burpees';
       break;
 
     case 17:
-      exercise = '10 burpees';
+      text = '10 burpees';
       break;
 
     case 18:
-      exercise = '20 burpees';
+      text = '20 burpees';
       break;
 
     case 19:
-      exercise = '10 burpees';
+      text = '10 burpees';
       break;
 
     case 20:
-      exercise = '20 burpees';
+      text = '20 burpees';
       break;
 
     case 21:
-      exercise = '10 burpees';
+      text = '10 burpees';
       break;
 
     case 22:
-      exercise = '20 burpees';
+      text = '20 burpees';
       break;
 
     case 23:
-      exercise = '20 burpees';
+      text = '20 burpees';
       break;
 
     case 24:
-      exercise = '20 burpees';
+      text = '20 burpees';
       break;
   }
-  let activeDay = document.getElementById('activeDay').children[0];
-  activeDay.innerHTML = '';
+  const activeDay = document.getElementById('activeDay');
+  activeDay.classList.add('windowOpened');
+
+  let activeDayContent = activeDay.children[0];
+  activeDayContent.innerHTML = '';
   document
     .getElementById('activeDay')
     .removeEventListener('click', getExerciseForToday);
   if (isLink) {
-    activeDay.appendChild(document.createElement('a'));
-    activeDay.children[0].href = exercise;
-    activeDay.children[0].appendChild(document.createTextNode(exercise));
+    activeDayContent.appendChild(document.createElement('a'));
+    activeDayContent.children[0].href = link;
+    activeDayContent.children[0].appendChild(
+      document.createTextNode(text ? text : link),
+    );
   } else {
-    activeDay.appendChild(document.createTextNode(exercise));
+    activeDayContent.appendChild(document.createTextNode(text));
   }
 };
 

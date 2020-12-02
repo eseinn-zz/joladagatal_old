@@ -59,6 +59,10 @@ h2 {
   background: #008000c7;
 }
 
+.windowOpened {
+  cursor: unset !important;
+}
+
 a {
   color: black;
 }
