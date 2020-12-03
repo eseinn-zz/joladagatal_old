@@ -26,10 +26,44 @@ const showContentIfDecemeber = () => {
   }
 };
 
+renderExerciseForDay = (day) => {
+  const date = new Date();
+  const today = date.getDate();
+  const [text, link, isLink] = getExerciseForDay(day);
+
+  const chosenDay = document.getElementById(
+    day === today ? 'activeDay' : 'day' + day,
+  );
+  if (day === today) {
+    chosenDay.classList.add('windowOpened');
+    document
+      .getElementById('activeDay')
+      .removeEventListener('click', getExerciseForToday);
+  }
+  console.log(chosenDay);
+  let content = chosenDay.children[0];
+  content.innerHTML = '';
+
+  if (isLink) {
+    content.appendChild(document.createElement('a'));
+    content.children[0].href = link;
+    content.children[0].appendChild(
+      document.createTextNode(text ? text : link),
+    );
+  } else {
+    content.appendChild(document.createTextNode(text));
+  }
+};
+
 const getExerciseForToday = () => {
   const date = new Date();
   const day = date.getDate();
+  renderExerciseForDay(day);
+};
+
+const getExerciseForDay = (day) => {
   let text = null;
+  let link = null;
   let isLink = false;
   switch (day) {
     case 1:
@@ -131,26 +165,12 @@ const getExerciseForToday = () => {
       text = '20 burpees';
       break;
   }
-  const activeDay = document.getElementById('activeDay');
-  activeDay.classList.add('windowOpened');
-
-  let activeDayContent = activeDay.children[0];
-  activeDayContent.innerHTML = '';
-  document
-    .getElementById('activeDay')
-    .removeEventListener('click', getExerciseForToday);
-  if (isLink) {
-    activeDayContent.appendChild(document.createElement('a'));
-    activeDayContent.children[0].href = link;
-    activeDayContent.children[0].appendChild(
-      document.createTextNode(text ? text : link),
-    );
-  } else {
-    activeDayContent.appendChild(document.createTextNode(text));
-  }
+  return [text, link, isLink];
 };
 
 const renderCalendar = () => {
+  const date = new Date();
+  const day = date.getDate();
   for (let index = 0; index < 25; index++) {
     const dayContainer = document
       .getElementById('calendar')
@@ -161,11 +181,14 @@ const renderCalendar = () => {
     const dayContent = dayContainer.appendChild(document.createElement('div'));
     dayContent.className = 'dayContent';
     if (index > 0) {
-      dayContent.appendChild(document.createTextNode(index));
+      if (day > index) {
+        renderExerciseForDay(index);
+      } else {
+        dayContent.appendChild(document.createTextNode(index));
+      }
     }
   }
-  const date = new Date();
-  const day = date.getDate();
+
   const dayContainer = document.getElementById('day' + day);
   dayContainer.id = 'activeDay';
   document
