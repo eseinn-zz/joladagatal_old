@@ -99,15 +99,20 @@ const getExerciseForDay = (day) => {
       break;
 
     case 8:
-      text = '20 burpees';
+      link = 'https://www.youtube.com/watch?v=E6IrIPnzsKE';
+      isLink = true;
       break;
 
     case 9:
-      text = '10 burpees';
+      link = 'https://www.youtube.com/watch?v=GfUpbhaCK7Y';
+      isLink = true;
       break;
 
     case 10:
-      text = '20 burpees';
+      text = 'Veldu 10 teygjur og gerðu hverja í a.m.k. mínútu';
+      link =
+        'https://www.youtube.com/watch?v=RCFF0Ogkqfw&list=PL0mpr8-xOflAKZwOcG4_vLsLHyYEhBDRx&index=14';
+      isLink = true;
       break;
 
     case 11:
