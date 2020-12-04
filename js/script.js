@@ -81,20 +81,21 @@ const getExerciseForDay = (day) => {
       break;
 
     case 4:
-      link = 'https://www.youtube.com/watch?v=9DqQ5GfZth4&t=449s'; //6 min ab workout
+      link = 'https://www.youtube.com/watch?v=9DqQ5GfZth4'; //6 min ab workout
       isLink = true;
       break;
 
     case 5:
-      text = 'Hálftíma göngutúr';
+      link = ' https://www.youtube.com/watch?v=oAPCPjnU1wA'; // 20 MINUTE FULL BODY WORKOUT(NO EQUIPMENT)
+      isLink = true;
       break;
 
     case 6:
-      text = '20 burpees';
+      text = 'Hálftíma göngutúr';
       break;
 
     case 7:
-      text = '10 burpees';
+      text = '50 armbeygjur';
       break;
 
     case 8:
